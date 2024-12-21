@@ -1,0 +1,10 @@
+{
+  "name": "Claude AI Gnome Extension",
+  "description": "Integrating Claude AI into Gnome Shell",
+  "uuid": "gnome-claude-ai@dowbecki.com",
+  "url": "https://github.com/kdowbecki/gnome-claude-ai",
+  "settings-schema": "org.gnome.shell.extensions.gnome-claude-ai",
+  "shell-version": [
+      "47"
+  ]
+}
