@@ -1,1 +1,1 @@
-# Claude AI Indicator for Gnome Shell
+# Claude AI integration for Gnome Shell

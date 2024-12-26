@@ -21,7 +21,7 @@ export default class Indicator extends Button {
     Main.panel.addToStatusArea(uuid, this, 0, "right");
 
     const icon = new St.Icon({
-      gicon: Gio.icon_new_for_string(`${path}/assets/claude.png`),
+      gicon: Gio.icon_new_for_string(`${path}/assets/claude-icon.svg`),
       styleClass: "system-status-icon indicator-icon",
     });
     this.add_child(icon);
@@ -32,7 +32,7 @@ export default class Indicator extends Button {
   set compactLayout(value: boolean) {
     if (this._compactLayout === value) return;
     this._compactLayout = value;
-    // TODO implement compact layout
+    // TODO implement compact layout switching
   }
 
   enable() {

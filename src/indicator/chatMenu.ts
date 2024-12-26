@@ -1,7 +1,14 @@
+// TODO Understand difference between importing from js file path and from @module expression
 import Indicator from "./indicator.js";
 
 export default class ChatMenu {
-  constructor(indicator: Indicator) {}
+  private _indicator: Indicator;
 
-  destroy() {}
+  constructor(indicator: Indicator) {
+    this._indicator = indicator;
+  }
+
+  destroy() {
+    
+  }
 }
