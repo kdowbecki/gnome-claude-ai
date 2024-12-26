@@ -11,6 +11,11 @@
 [ts-for-gir](https://github.com/gjsify/ts-for-gir)
 
 
+## Examples
+
+[tilingshell/src/extension.ts](https://github.com/domferr/tilingshell/blob/main/src/extension.ts)
+
+
 ## Testing
 
 [Testing an extension](https://gjs.guide/extensions/development/creating.html#testing-the-extension) says to start a new nested Gnome session with:
@@ -24,3 +29,5 @@ and within this new session:
 ```
 $ gnome-extensions enable gnome-claude-ai@dowbecki.com
 ```
+
+The extension will be installed in `~/.local/share/gnome-shell/extensions/` directory
