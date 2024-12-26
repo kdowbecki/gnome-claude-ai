@@ -1,52 +1,38 @@
-import Gtk from 'gi://Gtk';
-import Adw from 'gi://Adw';
-import Gio from 'gi://Gio';
-import { ExtensionPreferences, gettext as _ } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+import Adw from "gi://Adw";
+import Gio from "gi://Gio";
+import {
+  ExtensionPreferences,
+  gettext as _,
+} from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
 export default class GnomeRectanglePreferences extends ExtensionPreferences {
-  _settings?: Gio.Settings
+  _settings?: Gio.Settings;
 
-  fillPreferencesWindow(window: Adw.PreferencesWindow) : Promise<void> {
+  fillPreferencesWindow(window: Adw.PreferencesWindow): Promise<void> {
     this._settings = this.getSettings();
 
     const page = new Adw.PreferencesPage({
-      title: _('General'),
-      iconName: 'dialog-information-symbolic',
+      title: _("General"),
+      iconName: "dialog-information-symbolic",
     });
 
-    const animationGroup = new Adw.PreferencesGroup({
-      title: _('Animation'),
-      description: _('Configure move/resize animation'),
+    const lookAndFeelGroup = new Adw.PreferencesGroup({
+      title: _("Look and Feel"),
+      description: _("Configure the look and feel of the extension"),
     });
-    page.add(animationGroup);
+    page.add(lookAndFeelGroup);
 
-    const animationEnabled = new Adw.SwitchRow({
-      title: _('Enabled'),
-      subtitle: _('Wether to animate windows'),
+    const compactLayout = new Adw.SwitchRow({
+      title: _("Compact Layout"),
+      subtitle: _("Use compact layout"),
     });
-    animationGroup.add(animationEnabled);
+    lookAndFeelGroup.add(compactLayout);
 
-    const paddingGroup = new Adw.PreferencesGroup({
-      title: _('Paddings'),
-      description: _('Configure the padding between windows'),
-    });
-    page.add(paddingGroup);
+    window.add(page);
 
-    const paddingInner = new Adw.SpinRow({
-      title: _('Inner'),
-      subtitle: _('Padding between windows'),
-      adjustment: new Gtk.Adjustment({
-        lower: 0,
-        upper: 1000,
-        stepIncrement: 1
-      })
-    });
-    paddingGroup.add(paddingInner);
-
-    window.add(page)
-
-    this._settings!.bind('animate', animationEnabled, 'active', Gio.SettingsBindFlags.DEFAULT);
-    this._settings!.bind('padding-inner', paddingInner, 'value', Gio.SettingsBindFlags.DEFAULT);
+    // TODO how to bind compact layout to settings?
+    // this._settings!.bind('animate', compactLayout, 'active', Gio.SettingsBindFlags.DEFAULT);
+    // this._settings!.bind('padding-inner', paddingInner, 'value', Gio.SettingsBindFlags.DEFAULT);
 
     return Promise.resolve();
   }
