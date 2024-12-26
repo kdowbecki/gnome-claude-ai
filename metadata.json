@@ -1,5 +1,5 @@
 {
-  "name": "Claude AI Gnome Extension",
+  "name": "Claude AI Indicator",
   "description": "Integrating Claude AI into Gnome Shell",
   "uuid": "gnome-claude-ai@dowbecki.com",
   "url": "https://github.com/kdowbecki/gnome-claude-ai",

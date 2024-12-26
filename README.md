@@ -1,2 +1,1 @@
-# Claude AI Gnome Extension
-
+# Claude AI Indicator for Gnome Shell
